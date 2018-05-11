@@ -112,9 +112,9 @@ public final class OcrCaptureActivity extends AppCompatActivity implements Detec
         gestureDetector = new GestureDetector(this, new CaptureGestureListener());
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
-        Snackbar.make(graphicOverlay, "Tap to Speak. Pinch/Stretch to zoom",
+       /* Snackbar.make(graphicOverlay, "Tap to Speak. Pinch/Stretch to zoom",
                 Snackbar.LENGTH_LONG)
-                .show();
+                .show();*/
 
         // Set up the Text To Speech engine.
         TextToSpeech.OnInitListener listener =
