@@ -15,6 +15,7 @@
  */
 package com.yash.ocr;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -51,29 +52,35 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
         graphicOverlay.clear();
         SparseArray<TextBlock> items = detections.getDetectedItems();
 
-        synchronized (sb) {
+        synchronized (sb)
+        {
 
-            sb = new StringBuffer();
+
             list = new ArrayList<>();
 
             for (int i = 0; i < items.size(); ++i) {
                 TextBlock item = items.valueAt(i);
                 List<Line> lines = (List<Line>) item.getComponents();
 
-            /*if (item != null && item.getValue() != null) {
-                Log.d("OcrDetectorProcessor", "Text detected! " + item.getValue());
-                OcrGraphic graphic = new OcrGraphic(graphicOverlay, item);
-                graphicOverlay.add(graphic);
-            }*/
-                for (Line line : lines) {
+            if (item != null && item.getValue() != null)
+            {
+                Log.e("Line : ", "" + item.getValue() );// + "  BOUNDS : " + item.getBoundingBox().top);
+                //Log.d("OcrDetectorProcessor", "Text detected! " + item.getValue());
+               /* OcrGraphic graphic = new OcrGraphic(graphicOverlay, item);
+                graphicOverlay.add(graphic);*/
+
+                for (Line line : lines)
+                {
                     String lineStr = line.getValue();
-                    Log.e("Line : ", "" + lineStr);
+                    Log.e("Line : ", "" + lineStr + "  BOUNDS : " + line.getBoundingBox().top );
+
                     OcrGraphic graphic = new OcrGraphic(graphicOverlay, line);
                     list.add(line);
                     graphicOverlay.add(graphic);
-                    sb.append(lineStr);
-                    sb.append('\n');
+
                 }
+
+            }
             }
         }
     }
@@ -93,9 +100,83 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
         return sb.toString();
     }
 
-    public ArrayList<Line> getListData() {
+    public ArrayList<Line> getListData()
+    {
         Collections.sort(list, new LineSort());
+
+        sb = new StringBuffer();
+
+        int i = 0;
+        while(i< list.size()-1)
+        {
+            Line topper = list.get(i);
+            sb.append(topper.getValue());
+            int j = i+1;
+            while (j<list.size())
+            {
+                Line junior = list.get(j);
+                //if(junior.getBoundingBox().top == topper.getBoundingBox().top)
+
+                if((junior.getBoundingBox().top > topper.getBoundingBox().top-6 ) && (junior.getBoundingBox().top < topper.getBoundingBox().top+6 ))
+                {
+                    sb.append( "  " + junior.getValue() );
+                    list.remove(j);
+                }else
+                {
+                    j++;
+                }
+            }
+            sb.append('\n');
+
+            i++;
+        }
+
+        String[] array  = TextUtils.split(sb.toString() , "\n");
+
+
+        Log.e("FINAL" , sb.toString());
+
+
         return list;
+    }
+
+
+    public String[] getArrayData()
+    {
+        Collections.sort(list, new LineSort());
+
+        sb = new StringBuffer();
+
+        int i = 0;
+        while(i< list.size()-1)
+        {
+            Line topper = list.get(i);
+            sb.append(topper.getValue());
+            int j = i+1;
+            while (j<list.size())
+            {
+                Line junior = list.get(j);
+                //if(junior.getBoundingBox().top == topper.getBoundingBox().top)
+
+                if((junior.getBoundingBox().top > topper.getBoundingBox().top-6 ) && (junior.getBoundingBox().top < topper.getBoundingBox().top+6 ))
+                {
+                    sb.append( "  " + junior.getValue() );
+                    list.remove(j);
+                }else
+                {
+                    j++;
+                }
+            }
+            sb.append('\n');
+
+            i++;
+        }
+
+        String[] array  = TextUtils.split(sb.toString() , "\n");
+
+
+
+        return array;
     }
 
     /**

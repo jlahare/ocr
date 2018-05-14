@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_weight=".2"
-            android:text="Address:"
-            android:textColor="@android:color/black"
+            android:text="Bank"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_gravity="left"
             android:layout_weight=".2"
             android:text="Card No:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
@@ -98,7 +98,7 @@
             android:layout_gravity="left"
             android:layout_weight=".2"
             android:text="TXN No:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
@@ -126,7 +126,7 @@
             android:layout_gravity="left"
             android:layout_weight=".2"
             android:text="Amount"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView

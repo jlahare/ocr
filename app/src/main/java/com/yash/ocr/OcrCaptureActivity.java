@@ -52,7 +52,6 @@ import com.yash.ocr.camera.CameraSourcePreview;
 import com.yash.ocr.camera.GraphicOverlay;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -137,7 +136,7 @@ public final class OcrCaptureActivity extends AppCompatActivity implements Detec
                 String s = ocr.getData();
 
 
-                ArrayList<Line> list = ocr.getListData();
+              /*  ArrayList<Line> list = ocr.getListData();
 
                 //Toast.makeText(OcrCaptureActivity.this, s , Toast.LENGTH_LONG).show();
 
@@ -147,14 +146,16 @@ public final class OcrCaptureActivity extends AppCompatActivity implements Detec
                     String l = list.get(i).getValue();
                     sb.append(l);
                     sb.append('\n');
-                }
+                }*/
 
+                String[] array  = ocr.getArrayData();
 
                 Intent intent = new Intent();
                 intent.setClass(OcrCaptureActivity.this, DetailActivity.class);
                 //Set your data using putExtra method which take
                 //any key and value which we want to send
-                intent.putExtra("DATA", sb.toString());
+                //intent.putExtra("DATA", sb.toString());
+                intent.putExtra("DATA", array);
                 //Use startActivity or startActivityForResult for Starting New Activity
                 startActivity(intent);
             }
@@ -222,6 +223,8 @@ public final class OcrCaptureActivity extends AppCompatActivity implements Detec
         // is set to receive the text recognition results, track the text, and maintain
         // graphics for each text block on screen.  The factory is used by the multi-processor to
         // create a separate tracker instance for each text block.
+
+
         TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
         ocr = new OcrDetectorProcessor(graphicOverlay);
 
