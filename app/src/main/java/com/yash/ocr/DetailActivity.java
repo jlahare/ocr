@@ -56,15 +56,17 @@ public class DetailActivity extends Activity {
 
                 if (data[i].toLowerCase().indexOf("card") != -1) {
                     cardNumber = data[i];
-                    cardNumber = cardNumber.replace(":", "");
-                    cardNumber = cardNumber.replace("CARD NO", "").trim();
+                   /* cardNumber = cardNumber.replace(":", "");
+                    cardNumber = cardNumber.replace("CARD NO", "").trim();*/
+                    cardNumber = cardNumber.replaceAll("[^0-9*]+", "");
+
                 }
                 if (data[i].toLowerCase().indexOf("unt") != -1) {
                     amount = data[i];
-                    amount = amount.replace("AMOUNT", "").trim();
+                /*    amount = amount.replace("AMOUNT", "").trim();
                     amount = amount.replace("AMT", "").trim();
-                    amount = amount.replace("ALMOUNT", "").trim();
-                    amount = amount.replace(":", "");
+                    amount = amount.replace(":", "");*/
+                    amount = amount.replaceAll("[^0-9.]+", "");
                 }
             }
 
