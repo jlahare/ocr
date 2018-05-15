@@ -32,25 +32,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_weight=".2"
-            android:text="Bank"
+            android:layout_weight=".3"
+            android:text="Bank:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/address"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_weight=".8"
-            android:hint="address"
+            android:layout_weight=".7"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
     </LinearLayout>
@@ -61,25 +61,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/address_layout"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_weight=".2"
+            android:layout_weight=".3"
             android:text="Card No:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/card_no"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_weight=".8"
-            android:hint="Card No"
+            android:layout_weight=".7"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
     </LinearLayout>
@@ -89,25 +89,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/card_layout"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_weight=".2"
+            android:layout_weight=".3"
             android:text="TXN No:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/txn_no"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_weight=".8"
-            android:hint="TXN No"
+            android:layout_weight=".7"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
     </LinearLayout>
@@ -117,25 +117,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_layout"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_weight=".2"
-            android:text="Amount"
+            android:layout_weight=".3"
+            android:text="Amount:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
         <TextView
             android:id="@+id/amount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_weight=".8"
-            android:hint="Amount:"
+            android:layout_weight=".7"
             android:textColor="@android:color/black"
             android:textSize="20dp" />
     </LinearLayout>
